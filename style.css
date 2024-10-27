@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300,700');
+
+:root{
+    --color-black: #191b22;
+    --color-white: #fff;
+
+    --bg-active: rgb(163, 177, 210);
+}
+
+body {
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.3;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: auto;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    overflow: hidden ;
+}
+
+.sidebar {
+    width: 50px; /* по умолчанию 60px */
+    height: 100vh;
+    background: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    transition: width 0.3s; /* анимация перехода */
+    overflow: hidden; /* скрыть содержимое, чтобы не выходило за пределы */
+}
+
+.sidebar.expanded {
+    width: 250px; /* ширина, когда sidebar увеличен */
+}
+
+.change-icon> .fa-solid{
+    visibility: hidden;
+}
+
+.change-icon> .fa-xmark{
+    visibility: visible;
+}
+
+.sidebar_icon {
+    cursor: pointer;
+}
+
+.fa-solid{
+    font-size: 30px;
+    opacity: .9;
+    cursor: pointer;
+     visibility: visible;
+    position: absolute;
+    padding-left: 5px;
+}
+
+.sidebar:hover>.sidebar_icon>.fa-solid {
+    visibility: hidden;
+}
+
+.sidebar:hover>.sidebar_icon>.fa-xmark {
+    visibility: visible;
+}
+
+.fa-solid:hover+ .fa-xmark {
+    visibility: visible;
+}
+
+.fa-solid:hover {
+    visibility: hidden;
+}
+
+.fa-bars {
+    visibility: visible;
+    position: absolute;
+}
+
+.fa-xmark {
+    visibility: hidden;
+    position: absolute;
+    padding-left: 7px;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+}
+
+.main_bg {
+    background: #444;
+}
+
+.main__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 100px;
+    transition: .3s all;
+}
+
+.main__content_bg {
+    background: var(--bg-active);
+    transform: translate(20%, 5%) scale(0.9);
+    max-height: 70vh;
+    overflow: auto;
+    max-width: 76%;
+}   
+/* navigation */
+.nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 15px;
+}
+
+.sidebar.expanded .nav {
+    display: flex; /* показываем элементы навигации, когда sidebar увеличен */
+}
+
+.nav_bar {
+    display: flex;
+}
+
+.item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-list {
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+
+ 
